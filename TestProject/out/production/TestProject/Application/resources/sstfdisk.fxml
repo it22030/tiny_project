@@ -1,0 +1,81 @@
+package Application.controllers;
+
+        import javafx.fxml.FXML;
+        import javafx.scene.control.Label;
+        import javafx.scene.control.TextField;
+        import javafx.event.ActionEvent;
+
+        import java.util.ArrayList;
+        import java.util.Collections;
+        import java.util.List;
+
+        public class sstfdiskController {
+
+        @FXML
+        private TextField pointerInput;
+
+        @FXML
+        private TextField queueInput;
+
+        @FXML
+        private Label label;
+
+        // Back button
+        @FXML
+        private void goToDisk(ActionEvent event) {
+        System.out.println("Back button clicked");
+        // Navigation logic
+        }
+
+        // Home button
+        @FXML
+        private void goToHome(ActionEvent event) {
+        System.out.println("Home button clicked");
+        // Navigation logic
+        }
+
+        // Submit button
+        @FXML
+        private void submitButton(ActionEvent event) {
+        try {
+        int pointer = Integer.parseInt(pointerInput.getText().trim());
+        String[] parts = queueInput.getText().split(",");
+        List<Integer> queue = new ArrayList<>();
+
+   for (String part : parts) {
+   queue.add(Integer.parseInt(part.trim()));
+   }
+
+   int totalMovement = sstf(pointer, queue);
+   label.setText(totalMovement + " cylinders");
+
+   } catch (Exception e) {
+   label.setText("Invalid input");
+   }
+   }
+
+   // SSTF Disk Scheduling Algorithm
+   private int sstf(int head, List<Integer> queue) {
+      int totalMovement = 0;
+      List<Integer> requests = new ArrayList<>(queue);
+
+         while (!requests.isEmpty()) {
+         int closest = -1;
+         int minDistance = Integer.MAX_VALUE;
+
+         for (int i = 0; i < requests.size(); i++) {
+         int dist = Math.abs(head - requests.get(i));
+         if (dist < minDistance) {
+         minDistance = dist;
+         closest = i;
+         }
+         }
+
+         totalMovement += minDistance;
+         head = requests.get(closest);
+         requests.remove(closest);
+         }
+
+         return totalMovement;
+         }
+         }

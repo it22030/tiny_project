@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Application.controllers.firstFitController">
+   <children>
+      <Button layoutX="46.0" layoutY="33.0" mnemonicParsing="false" onAction="#goTomemoryallocation" text="Back" />
+      <Button layoutX="46.0" layoutY="327.0" mnemonicParsing="false" onAction="#goToHome" text="Home" />
+      <Label layoutX="16.0" layoutY="105.0" text="Memory Segments" />
+      <Label layoutX="34.0" layoutY="148.0" text="Process Size" />
+      <TextField fx:id="segmentInput" layoutX="121.0" layoutY="101.0" prefHeight="25.0" prefWidth="336.0" />
+      <TextField fx:id="processInput" layoutX="121.0" layoutY="144.0" prefHeight="25.0" prefWidth="336.0" />
+      <Button layoutX="121.0" layoutY="187.0" mnemonicParsing="false" onAction="#submitButton" text="submit" />
+      <Label layoutX="73.0" layoutY="235.0" text="output" />
+      <Label fx:id="outputLabel" layoutX="146.0" layoutY="235.0" text="?" />
+      <Label layoutX="225.0" layoutY="14.0" text="First Fit Algorithm" />
+   </children>
+</AnchorPane>
